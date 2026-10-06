@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#8b7961">
+  <title>Nosso Casamento | Nathana & Leonardo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#fbf8f3;
+      --paper:#fffdf9;
+      --beige:#eee6da;
+      --text:#4b4841;
+      --muted:#7b766e;
+      --gold:#9a8061;
+      --gold-dark:#78634b;
+      --line:#e5ddd2;
+      --shadow:0 15px 45px rgba(70,55,40,.10);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:Montserrat,Arial,sans-serif;
+    }
+
+    a{text-decoration:none;color:inherit}
+    button{font-family:inherit}
+
+    .hero{
+      min-height:92vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+      color:#fff;
+      background:
+        linear-gradient(rgba(40,32,25,.35),rgba(40,32,25,.55)),
+        url("capa-machu-picchu.jpg")
+        center/cover;
+    }
+
+    .hero-content{padding:40px 20px;animation:fadeUp 1.2s ease both}
+    .eyebrow{
+      letter-spacing:4px;
+      font-size:11px;
+      font-weight:600;
+      margin:0 0 14px;
+    }
+
+    .hero h1{
+      font-family:"DM Serif Display",serif;
+      font-weight:400;
+      font-size:clamp(54px,10vw,105px);
+      line-height:.98;
+      margin:0 0 22px;
+    }
+
+    .hero-date{
+      font-size:15px;
+      letter-spacing:6px;
+      margin-bottom:35px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:0;
+      border-radius:999px;
+      padding:14px 25px;
+      background:var(--gold);
+      color:#fff;
+      cursor:pointer;
+      font-size:13px;
+      font-weight:600;
+      transition:.25s;
+    }
+
+    .btn:hover{background:var(--gold-dark);transform:translateY(-2px)}
+
+    .btn-light{
+      background:#fff;
+      color:var(--gold-dark);
+    }
+
+    .btn-light:hover{background:#f7f1e9}
+
+    .intro{
+      max-width:780px;
+      text-align:center;
+      margin:auto;
+      padding:95px 25px 75px;
+    }
+
+    h2{
+      font-family:"DM Serif Display",serif;
+      font-weight:400;
+      font-size:clamp(36px,5vw,52px);
+      margin:8px 0 20px;
+    }
+
+    .intro p:not(.eyebrow){
+      color:var(--muted);
+      line-height:1.9;
+      font-size:15px;
+    }
+
+    .divider{
+      width:55px;
+      height:1px;
+      background:var(--gold);
+      margin:28px auto 0;
+    }
+
+    .gifts{
+      background:var(--beige);
+      padding:85px 6% 105px;
+    }
+
+    .section-title{text-align:center;margin-bottom:48px}
+    .section-title p{color:var(--gold-dark)}
+
+    .gift-grid{
+      max-width:1120px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(235px,1fr));
+      gap:24px;
+    }
+
+    .gift-card{
+      background:var(--paper);
+      border:1px solid rgba(120,100,75,.08);
+      border-radius:20px;
+      padding:32px 25px;
+      text-align:center;
+      box-shadow:var(--shadow);
+      transition:.3s;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+
+    .gift-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 20px 50px rgba(70,55,40,.15);
+    }
+
+    .gift-image{
+      width:100%;
+      height:155px;
+      object-fit:cover;
+      border-radius:14px;
+      margin-bottom:22px;
+    }
+
+    .gift-icon{
+      width:62px;
+      height:62px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:#f2ebe1;
+      color:var(--gold-dark);
+      font-size:27px;
+      margin-bottom:17px;
+    }
+
+    .gift-card h3{
+      font-family:"DM Serif Display",serif;
+      font-weight:400;
+      font-size:27px;
+      margin:0 0 10px;
+    }
+
+    .gift-card p{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.6;
+      min-height:42px;
+      margin:0;
+    }
+
+    .gift-price{
+      font-size:21px;
+      font-weight:600;
+      margin:22px 0 5px;
+      color:var(--gold-dark);
+    }
+
+    .how{
+      padding:90px 25px;
+      text-align:center;
+    }
+
+    .steps{
+      max-width:900px;
+      margin:45px auto 0;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:35px;
+    }
+
+    .step-number{
+      width:48px;
+      height:48px;
+      border-radius:50%;
+      background:var(--beige);
+      color:var(--gold-dark);
+      display:grid;
+      place-items:center;
+      margin:0 auto 15px;
+      font-weight:600;
+    }
+
+    .steps h3{font-family:"DM Serif Display",serif;font-size:25px;font-weight:400}
+    .steps p{color:var(--muted);font-size:13px;line-height:1.7}
+
+    footer{
+      text-align:center;
+      padding:50px 20px;
+      background:#ebe3d8;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    footer .heart{color:var(--gold-dark);font-size:22px}
+
+    /* Modal */
+    .modal{
+      position:fixed;
+      inset:0;
+      background:rgba(25,20,16,.72);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      z-index:100;
+      backdrop-filter:blur(4px);
+    }
+
+    .modal.active{display:flex}
+
+    .modal-box{
+      width:min(470px,100%);
+      max-height:90vh;
+      overflow:auto;
+      background:var(--paper);
+      border-radius:24px;
+      padding:35px;
+      text-align:center;
+      position:relative;
+      box-shadow:0 30px 80px rgba(0,0,0,.3);
+      animation:modalIn .3s ease;
+    }
+
+    .close{
+      position:absolute;
+      top:12px;
+      right:17px;
+      border:0;
+      background:transparent;
+      font-size:30px;
+      color:#777;
+      cursor:pointer;
+    }
+
+    .modal-box h2{font-size:38px;margin-bottom:8px}
+    .modal-description{color:var(--muted);font-size:13px;line-height:1.6}
+    .modal-price{font-size:28px;font-weight:600;color:var(--gold-dark);margin:20px 0}
+
+    .pix-box{
+      background:#f2ebe1;
+      border-radius:16px;
+      padding:22px;
+      margin-top:20px;
+    }
+
+    .pix-box h3{
+      font-family:"DM Serif Display",serif;
+      font-size:26px;
+      font-weight:400;
+      margin:0 0 8px;
+    }
+
+    .qr{
+      width:190px;
+      height:190px;
+      margin:18px auto;
+      border-radius:10px;
+      background:#fff;
+      padding:8px;
+      display:block;
+    }
+
+    .pix-key{
+      background:#fff;
+      border:1px dashed #cbbba8;
+      border-radius:9px;
+      padding:12px;
+      word-break:break-all;
+      font-size:12px;
+      color:#555;
+      margin:12px 0;
+    }
+
+    .copy-message{
+      min-height:18px;
+      font-size:12px;
+      color:var(--gold-dark);
+      margin-top:10px;
+    }
+
+    .note{
+      font-size:11px;
+      color:#888;
+      line-height:1.5;
+      margin-top:17px;
+    }
+
+    @keyframes fadeUp{
+      from{opacity:0;transform:translateY(25px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    @keyframes modalIn{
+      from{opacity:0;transform:scale(.96) translateY(10px)}
+      to{opacity:1;transform:scale(1) translateY(0)}
+    }
+
+    @media(max-width:700px){
+      .hero{min-height:85vh}
+      .steps{grid-template-columns:1fr;gap:15px}
+      .intro{padding-top:70px}
+      .gifts{padding-left:20px;padding-right:20px}
+      .modal-box{padding:30px 22px}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       CAPA
+       ========================= -->
+  <header class="hero">
+    <div class="hero-content">
+      <p class="eyebrow">NOSSO GRANDE DIA</p>
+
+      <!-- ALTERE OS NOMES AQUI -->
+      <h1>Nathana<br>&amp; Leonardo</h1>
+
+      <!-- ALTERE A DATA AQUI -->
+      <p class="hero-date">03 • 04 • 2027</p>
+
+      <a href="#presentes" class="btn btn-light">Nossa lista de presentes</a>
+    </div>
+  </header>
+
+  <!-- =========================
+       MENSAGEM
+       ========================= -->
+  <section class="intro">
+    <p class="eyebrow">Olá nossos familiares e amigos</p>
+    <h2>Você faz parte da nossa história</h2>
+
+    <p>
+      Estamos muito felizes em compartilhar esse momento tão especial
+      com as pessoas que amamos. Sua presença será o nosso maior presente.
+    </p>
+
+    <p>
+      Mas, se quiser nos presentear, preparamos algumas opções para
+      contribuir com a nossa lua de mel.
+    </p>
+
+    <div class="divider"></div>
+  </section>
+
+  <!-- =========================
+       LISTA DE PRESENTES
+       ========================= -->
+  <section class="gifts" id="presentes">
+
+    <div class="section-title">
+      <p class="eyebrow">MUITO OBRIGADA(O) QUERIDOS FAMILIARES E AMIGOS</p>
+      <h2>Escolha um presente</h2>
+      <p style="color:#7b766e;font-size:14px">
+        Escolha uma opção abaixo e irá gerar o Pix.
+      </p>
+    </div>
+
+    <div class="gift-grid">
+
+      <article class="gift-card">
+        <div class="gift-icon">✈🧳</div>
+        <h3>Uma Ajudinha na Passagem da lua de mel</h3>
+        <p>Uma ajudinha para passagem.</p>
+        <div class="gift-price">R$ 200,00</div>
+        <button class="btn"
+          onclick="abrirPresente('Passagem da lua de mel','Uma ajudinha para passagem.','200,00')">
+          Escolher presente
+        </button>
+      </article>
+
+      <article class="gift-card">
+        <div class="gift-icon">🏨</div>
+        <h3>Diária de hotel</h3>
+        <p>Para termos aonde dormir na lua de mel 🤣🤣.</p>
+        <div class="gift-price">R$ 400,00</div>
+        <button class="btn"
+          onclick="abrirPresente('Diária de hotel','Para termos aonde dormir na lua de mel 🤣🤣.','400,00')">
+          Escolher presente
+        </button>
+      </article>
+
+      <article class="gift-card">
+        <div class="gift-icon">🍷</div>
+        <h3>Jantar romântico</h3>
+        <p>Um jantar superfaturado que amamos.</p>
+        <div class="gift-price">R$ 300,00</div>
+        <button class="btn"
+          onclick="abrirPresente('Jantar romântico','Um jantar superfaturado que amamos.','300,00')">
+          Escolher presente
+        </button>
+      </article>
+
+      <article class="gift-card">
+        <div class="gift-icon">🥂</div>
+        <h3>Brinde dos noivos</h3>
+        <p>Não pode faltar aquela espumante.</p>
+        <div class="gift-price">R$ 100,00</div>
+        <button class="btn"
+          onclick="abrirPresente('Brinde dos noivos','Não pode faltar aquela espumante.','100,00')">
+          Escolher presente
+        </button>
+      </article>
+
+      <article class="gift-card">
+        <div class="gift-icon">🌴</div>
+        <h3>Passeio na lua de mel</h3>
+        <p>Os passeios dúvidosos que fizemos,que vocês já conhecem.</p>
+        <div class="gift-price">R$ 350,00</div>
+        <button class="btn"
+          onclick="abrirPresente('Passeio na lua de mel','Os passeios dúvidosos que fizemos,que vocês já conhecem.','350,00')">
+          Escolher presente
+        </button>
+      </article>
+
+      <article class="gift-card">
+        <div class="gift-icon">☕</div>
+        <h3>Café da manhã</h3>
+        <p>Um café especial na cafeteria colombo.</p>
+        <div class="gift-price">R$ 120,00</div>
+        <button class="btn"
+          onclick="abrirPresente('Café da manhã','Um café especial na cafeteria colombo.','120,00')">
+          Escolher presente
+        </button>
+      </article>
+
+      <article class="gift-card">
+        <div class="gift-icon">🌅</div>🌴
+        <h3>Passeio Cristo Redentor</h3>
+        <p>Para conhecermos uma das 7 maravilhas do mundo.</p>
+        <div class="gift-price">R$ 250,00</div>
+        <button class="btn"
+          onclick="abrirPresente('Para conhecermos uma das 7 maravilhas do mundo.','250,00')">
+          Escolher presente
+        </button>
+      </article>
+
+      <article class="gift-card">
+        <div class="gift-icon">❤️</div>
+        <h3>Presente livre</h3>
+        <p>Uma contribuição ''espontânea.''</p>
+        <div class="gift-price">R$ 150,00</div>
+        <button class="btn"
+          onclick="abrirPresente('Presente livre','Uma contribuição ''espontânea.''.','150,00')">
+          Escolher presente
+        </button>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- =========================
+       COMO FUNCIONA
+       ========================= -->
+  <section class="how">
+    <p class="eyebrow">É MUITO FÁCIL</p>
+    <h2>Como presentear</h2>
+
+    <div class="steps">
+      <div>
+        <div class="step-number">1</div>
+        <h3>Escolha</h3>
+        <p>Escolha na lista o presente que deseja oferecer aos noivos.</p>
+      </div>
+
+      <div>
+        <div class="step-number">2</div>
+        <h3>Veja o Pix</h3>
+        <p>O site mostrará a chave Pix e o QR Code para pagamento.</p>
+      </div>
+
+      <div>
+        <div class="step-number">3</div>
+        <h3>Pronto!</h3>
+        <p>Faça o pagamento pelo aplicativo do seu banco. Muito obrigado!</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="heart">♡</div>
+    <p>Obrigado por fazer parte da nossa história.</p>
+    <p>Nathana &amp; Leonardo</p>
+  </footer>
+
+  <!-- =========================
+       MODAL DO PRESENTE
+       ========================= -->
+  <div class="modal" id="modal" onclick="fecharFora(event)">
+    <div class="modal-box">
+
+      <button class="close" onclick="fecharModal()" aria-label="Fechar">×</button>
+
+      <p class="eyebrow">SEU PRESENTE</p>
+
+      <h2 id="presenteNome">Presente</h2>
+
+      <p class="modal-description" id="presenteDescricao"></p>
+
+      <div class="modal-price">
+        R$ <span id="presenteValor">0,00</span>
+      </div>
+
+      <div class="pix-box">
+
+        <h3>Pagamento por Pix</h3>
+
+        <p style="font-size:13px;color:#777">
+          Aponte a câmera do celular para o QR Code
+          ou copie a chave Pix abaixo.
+        </p>
+
+        <!--
+          QR CODE:
+          Este QR Code contém um payload Pix/BR Code válido.
+        -->
+        <img
+          class="qr"
+          id="qrCode"
+          src=""
+          alt="QR Code Pix">
+
+        <!-- ALTERE A CHAVE PIX AQUI -->
+        <div class="pix-key" id="pixKey">
+          49988316622
+        </div>
+
+        <button class="btn" onclick="copiarPix()">
+          📋 Copiar Pix
+        </button>
+
+        <div class="copy-message" id="copyMessage"></div>
+
+        <p class="note">
+          O pagamento é realizado diretamente para os noivos.
+          Este site não registra pedidos ou dados dos convidados.
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    /*
+      ==========================================
+      CONFIGURAÇÃO
+      ==========================================
+
+      ALTERE SOMENTE ESTA CHAVE:
+    */
+    const CHAVE_PIX = "49988316622";
+    const PIX_BASE = "00020126360014br.gov.bcb.pix0114+55499883166225204000053039865802BR5925NATHANA_RAFAELA_ANTUNES_D6007Chapeco610989805-59062290525NSGJ78825270179128550610963045D3C";
+
+    // CRC16-CCITT-FALSE usado pelo padrão Pix/BR Code.
+    function crc16(payload){
+      let crc = 0xFFFF;
+      for(let i = 0; i < payload.length; i++){
+        crc ^= payload.charCodeAt(i) << 8;
+        for(let j = 0; j < 8; j++){
+          crc = (crc & 0x8000) ? ((crc << 1) ^ 0x1021) & 0xFFFF : (crc << 1) & 0xFFFF;
+        }
+      }
+      return crc.toString(16).toUpperCase().padStart(4, "0");
+    }
+
+    function tlv(id, value){
+      return id + String(value.length).padStart(2, "0") + value;
+    }
+
+    function gerarPixComValor(valor){
+      // Remove CRC final e monta novamente o BR Code, inserindo o valor no campo 54.
+      const semCrc = PIX_BASE.slice(0, -4);
+      const partes = [];
+      let i = 0;
+
+      while(i < semCrc.length){
+        const id = semCrc.slice(i, i + 2);
+        const len = parseInt(semCrc.slice(i + 2, i + 4), 10);
+        const value = semCrc.slice(i + 4, i + 4 + len);
+        partes.push({id, value});
+        i += 4 + len;
+      }
+
+      // Campo 54 = valor da transação. Valor aberto quando não informado.
+      const valorNumerico = Number(String(valor).replace(",", "."));
+      const valorFormatado = Number.isFinite(valorNumerico)
+        ? valorNumerico.toFixed(2)
+        : null;
+
+      // Reconstroi preservando a ordem padrão e inserindo 54 antes do 58.
+      let payload = "";
+      for(const p of partes){
+        if(p.id === "54" || p.id === "63") continue;
+        if(p.id === "58" && valorFormatado){
+          payload += tlv("54", valorFormatado);
+        }
+        payload += tlv(p.id, p.value);
+      }
+
+      return payload + "6304" + crc16(payload + "6304");
+    }
+
+    function abrirPresente(nome, descricao, valor){
+      document.getElementById("presenteNome").textContent = nome;
+      document.getElementById("presenteDescricao").textContent = descricao;
+      document.getElementById("presenteValor").textContent = valor;
+
+      document.getElementById("pixKey").textContent = CHAVE_PIX;
+
+      // O QR Code já abre o pagamento com o valor do presente preenchido.
+      const pixPayload = gerarPixComValor(valor);
+      const qr = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="
+               + encodeURIComponent(pixPayload);
+
+      document.getElementById("qrCode").src = qr;
+      document.getElementById("copyMessage").textContent = "";
+
+      document.getElementById("modal").classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function fecharModal(){
+      document.getElementById("modal").classList.remove("active");
+      document.body.style.overflow = "";
+    }
+
+    function fecharFora(event){
+      if(event.target.id === "modal"){
+        fecharModal();
+      }
+    }
+
+    function copiarPix(){
+
+      const chave = CHAVE_PIX;
+
+      navigator.clipboard.writeText(chave)
+        .then(function(){
+          document.getElementById("copyMessage").textContent =
+            "✓ Chave Pix copiada!";
+        })
+        .catch(function(){
+          document.getElementById("copyMessage").textContent =
+            "Não foi possível copiar automaticamente. Selecione a chave acima.";
+        });
+    }
+
+    document.addEventListener("keydown", function(event){
+      if(event.key === "Escape"){
+        fecharModal();
+      }
+    });
+  </script>
+
+</body>
+</html>
